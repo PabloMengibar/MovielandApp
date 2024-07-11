@@ -14,6 +14,17 @@ const Header = ({ searchMovies }) => {
       </Link>
 
       <nav>
+      <div className="input-group rounded">
+        <Link to="/" onClick={(e) => searchMovies('')} className="search-link" >
+          <input type="search" data-testid="search-movies"
+            onKeyUp={(e) => searchMovies(e.target.value)} 
+            className="form-control rounded" 
+            placeholder="Search movies..." 
+            aria-label="Search movies" 
+            aria-describedby="search-addon" 
+            />
+        </Link>            
+      </div>  
         <NavLink to="/starred" data-testid="nav-starred" className="nav-starred">
           {starredMovies.length > 0 ? (
             <>
@@ -29,17 +40,7 @@ const Header = ({ searchMovies }) => {
         </NavLink>
       </nav>
 
-      <div className="input-group rounded">
-        <Link to="/" onClick={(e) => searchMovies('')} className="search-link" >
-          <input type="search" data-testid="search-movies"
-            onKeyUp={(e) => searchMovies(e.target.value)} 
-            className="form-control rounded" 
-            placeholder="Search movies..." 
-            aria-label="Search movies" 
-            aria-describedby="search-addon" 
-            />
-        </Link>            
-      </div>      
+          
     </header>
   )
 }
